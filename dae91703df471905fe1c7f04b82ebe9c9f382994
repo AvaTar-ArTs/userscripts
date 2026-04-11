@@ -1,0 +1,23 @@
+"Suno Extractor v8.0 (Ultimate).user.js"
+  3c373750d45b8637 82-83,85,95-100,102-104,115
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "dae91703df471905fe1c7f04b82ebe9c9f382994",
+  "prompts": {
+    "3c373750d45b8637": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "2bdb5356-30f1-4bf0-ba8b-4f33c3708057",
+        "model": "default"
+      },
+      "human_author": "GPTJunkie",
+      "messages": [],
+      "total_additions": 13,
+      "total_deletions": 8,
+      "accepted_lines": 13,
+      "overriden_lines": 0
+    }
+  }
+}
