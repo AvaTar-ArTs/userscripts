@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "repo": "AvaTar-ArTs/lyra-exporter",
+      "path": "src/utils",
+      "mode": "adapt",
+      "capabilities": ["batch-export", "global-search", "semantic-search", "tagging", "sorting", "stats", "post-message-bridge"],
+      "target": "src/services",
+      "notes": "Mine focused service patterns; do not copy the React application wholesale."
+    },
+    {
+      "repo": "AvaTar-ArTs/content-universe",
+      "path": "browser/ideogram-harvester.user.js",
+      "sha": "30b5b60a070edbd066f7fd7189bc7dafd9d56765",
+      "mode": "adapt",
+      "capabilities": ["ideogram-harvest", "adaptive-lazy-load", "resume", "export"],
+      "target": "src/apps/ideogram-harvester.user.js"
+    },
+    {
+      "repo": "AvaTar-ArTs/Suno-Extractor-Empire",
+      "path": "Suno Extractor v9.0 (The Sovereign).user.js",
+      "mode": "reference",
+      "capabilities": ["suno-api-interception", "dom-fallback", "accumulator", "export"],
+      "target": "src/adapters/suno.js"
+    },
+    {
+      "repo": "AvaTar-ArTs/notebooklm-mine",
+      "path": "Automated Python Script Classification and Organiz/Sources",
+      "mode": "archaeology",
+      "capabilities": ["deepseek-export", "claude-perplexity-export", "knowledge-graph-concepts"],
+      "target": "reports/ecosystem-assimilation.md"
+    },
+    {
+      "repo": "AvaTar-ArTs/pythons",
+      "path": "tools/DATA_UTILITIES_doc-generator_content",
+      "mode": "archaeology",
+      "capabilities": ["deepseek-export-history", "userscript-history", "browser-extension-history"],
+      "target": "reports/ecosystem-assimilation.md"
+    },
+    {
+      "repo": "AvaTar-ArTs/MediaCrawler",
+      "path": "README.md",
+      "mode": "reference",
+      "capabilities": ["playwright-platform-adapters", "cdp-session-reuse", "login-state-cache"],
+      "target": "future/browser-bridge",
+      "notes": "Architecture reference only; no crawler source is imported."
+    },
+    {
+      "repo": "AvaTar-ArTs/claude-manager",
+      "path": "README.md",
+      "mode": "reference",
+      "capabilities": ["session-registry", "project-branch-filtering", "import-export", "local-first-state"],
+      "target": "future/session-registry",
+      "notes": "Architecture reference only."
+    }
+  ]
+}
