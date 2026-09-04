@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 2,
-  "era": "final-forms",
+  "schemaVersion": 3,
+  "era": "final-forms-v2",
   "canonicalBase": "canonical-b",
   "scripts": [
     {
@@ -16,7 +16,7 @@
         "Suno Extractor v8.0 (Ultimate).user.js",
         "AvaTar-ArTs/Suno-Extractor-Empire:Suno Extractor v9.0 (The Sovereign).user.js"
       ],
-      "notes": "Final Forms keeps Canonical B as the installable baseline while the modular source moves extraction into the Suno adapter."
+      "notes": "Canonical B remains the installable baseline while Final Forms keeps Suno extraction behind the shared adapter boundary."
     },
     {
       "id": "claude-project-extractor",
@@ -33,25 +33,51 @@
     {
       "id": "lyra",
       "name": "Lyra Exporter Fetch",
-      "status": "canonical-base",
+      "status": "final-form",
       "path": "src/current/lyra.user.js",
       "finalFormPath": "src/apps/lyra.user.js",
       "adapter": "registry",
-      "hosts": ["chatgpt.com", "claude.ai", "gemini.google.com", "grok.com", "chat.deepseek.com", "kimi.com", "chat.qwen.ai", "notebooklm.google.com"],
+      "hosts": [
+        "chatgpt.com",
+        "claude.ai",
+        "gemini.google.com",
+        "grok.com",
+        "chat.deepseek.com",
+        "kimi.com",
+        "chat.qwen.ai",
+        "notebooklm.google.com",
+        "aistudio.google.com",
+        "localhost",
+        "127.0.0.1"
+      ],
       "legacyHosts": ["chat.openai.com", "bard.google.com", "chat.anthropic.com", "grok.x.ai", "notebook.google.com", "kimi.moonshot.cn"],
-      "lineage": ["lyra.js"],
-      "notes": "The Final Forms source entrypoint resolves platform behavior through the shared adapter registry."
+      "lineage": ["lyra.js", "AvaTar-ArTs/lyra-exporter:src/utils"],
+      "notes": "Final Forms v2 expands the platform registry with Google AI Studio and SillyTavern while mining Lyra service architecture separately."
     },
     {
-      "id": "ideogram-harvester-reference",
-      "name": "Ideogram Harvester Reference",
-      "status": "reference",
-      "path": "src/current/ideogram-reference.md",
+      "id": "deepseek-exporter",
+      "name": "DeepSeek Exporter Final Forms",
+      "status": "final-form",
+      "finalFormPath": "src/apps/deepseek-exporter.user.js",
+      "adapter": "deepseek",
+      "hosts": ["chat.deepseek.com"],
+      "legacyHosts": ["deepseek.com", "www.deepseek.com"],
+      "lineage": [
+        "AvaTar-ArTs/notebooklm-mine:DeepSeek Chat Exporter artifacts",
+        "AvaTar-ArTs/pythons:userscript documentation archaeology"
+      ],
+      "notes": "Rebuilt as a normalized JSON/Markdown exporter rather than copying historical generated source."
+    },
+    {
+      "id": "ideogram-harvester",
+      "name": "Ideogram Harvester Final Forms",
+      "status": "final-form",
+      "finalFormPath": "src/apps/ideogram-harvester.user.js",
       "adapter": "ideogram",
       "hosts": ["ideogram.ai"],
       "legacyHosts": [],
       "lineage": ["AvaTar-ArTs/content-universe:browser/ideogram-harvester.user.js"],
-      "notes": "Content Universe remains the executable source of truth while Final Forms provides an adapter boundary."
+      "notes": "Promoted from reference-only to a real Final Forms app while preserving Content Universe provenance."
     }
   ],
   "adapters": [
@@ -64,6 +90,15 @@
     "qwen",
     "notebooklm",
     "suno",
-    "ideogram"
-  ]
+    "ideogram",
+    "google-ai-studio",
+    "sillytavern"
+  ],
+  "services": [
+    "record-normalizer",
+    "search-index",
+    "tag-store"
+  ],
+  "schema": "src/schema/conversation-record.js",
+  "ecosystemSources": "ecosystem-sources.json"
 }
