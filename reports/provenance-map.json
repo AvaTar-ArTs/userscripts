@@ -1,0 +1,38 @@
+{
+  "baselineBranch": "archive-vanilla-origins",
+  "baselineCommit": "5ad428ea84c7c86b51973ca0783bc6cdba627da2",
+  "canonicalBranch": "canonical-b",
+  "finalBranch": "final-forms",
+  "knownExactDuplicates": [
+    {
+      "sha": "6570a40ab2703892eddd487479751eb105569700",
+      "paths": [
+        "Suno Data Extractor Master Script.js",
+        "Suno Data Extractor MasterScript.js"
+      ]
+    }
+  ],
+  "externalLineage": [
+    {
+      "repository": "AvaTar-ArTs/Suno-Extractor-Empire",
+      "role": "later Suno extractor generations and consolidation reference"
+    },
+    {
+      "repository": "AvaTar-ArTs/content-universe",
+      "path": "browser/ideogram-harvester.user.js",
+      "role": "modern Ideogram harvester reference"
+    },
+    {
+      "repository": "AvaTar-ArTs/pythons",
+      "role": "Claude extractor copies and surrounding utilities"
+    },
+    {
+      "repository": "AvaTar-ArTs/PYTHON_MARKETPLACE_MASTER",
+      "role": "productized Claude extractor copy"
+    }
+  ],
+  "localAudit": {
+    "userscriptsIndexed": 142,
+    "note": "Local Tampermonkey state/config files may differ even when userscript JavaScript is identical."
+  }
+}
