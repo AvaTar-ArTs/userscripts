@@ -11,10 +11,21 @@ for (const script of registry.scripts ?? []) {
     failed = true;
   }
   seen.add(script.id);
-  if (!script.path) {
-    console.error(`missing path: ${script.id}`);
+
+  const primaryPath = script.finalFormPath ?? script.path;
+  if (!primaryPath) {
+    console.error(`missing install/source path: ${script.id}`);
+    failed = true;
+  } else if (!fs.existsSync(new URL(`../${primaryPath}`, import.meta.url))) {
+    console.error(`path does not exist: ${script.id} -> ${primaryPath}`);
     failed = true;
   }
+
+  if (script.path && !fs.existsSync(new URL(`../${script.path}`, import.meta.url))) {
+    console.error(`canonical path does not exist: ${script.id} -> ${script.path}`);
+    failed = true;
+  }
+
   if (!Array.isArray(script.hosts) || script.hosts.length === 0) {
     console.error(`missing canonical hosts: ${script.id}`);
     failed = true;
