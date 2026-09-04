@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Lyra Final Forms
 // @namespace    https://github.com/AvaTar-ArTs/userscripts
-// @version      10.0.0-source
+// @version      10.1.0-source
 // @description  Adapter-driven multi-platform AI conversation exporter. Source entrypoint; bundle before Tampermonkey install.
 // @match        https://chatgpt.com/*
 // @match        https://claude.ai/*
@@ -11,6 +11,9 @@
 // @match        https://kimi.com/*
 // @match        https://chat.qwen.ai/*
 // @match        https://notebooklm.google.com/*
+// @match        https://aistudio.google.com/*
+// @match        http://localhost/*
+// @match        http://127.0.0.1/*
 // @grant        none
 // ==/UserScript==
 
@@ -29,6 +32,8 @@ async function exportCurrent() {
 
 function mount() {
   if (document.getElementById('lyra-final-forms-export')) return;
+  const adapter = resolveAdapter();
+  if (!adapter) return;
   const button = document.createElement('button');
   button.id = 'lyra-final-forms-export';
   button.textContent = 'Lyra Export';
