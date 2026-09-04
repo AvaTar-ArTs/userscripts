@@ -14,7 +14,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate registry
-        run: node tools/validate-registry.mjs
+      - name: Validate registries
+        run: |
+          node tools/validate-registry.mjs
+          node -e "JSON.parse(require('fs').readFileSync('ecosystem-sources.json','utf8')); console.log('ecosystem registry: OK')"
       - name: Syntax check Final Forms modules
-        run: find src/core src/adapters src/apps -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+        run: find src/core src/adapters src/apps src/schema src/services -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+      - name: Run Final Forms v2 tests
+        run: node --test tests/final-forms-v2.test.mjs
