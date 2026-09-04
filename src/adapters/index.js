@@ -9,8 +9,37 @@ import qwen from './qwen.js';
 import notebooklm from './notebooklm.js';
 import suno from './suno.js';
 import ideogram from './ideogram.js';
+import googleAiStudio from './google-ai-studio.js';
+import sillytavern from './sillytavern.js';
 
-export const allAdapters = [chatgpt, claude, gemini, grok, deepseek, kimi, qwen, notebooklm, suno, ideogram];
+export const allAdapters = [
+  chatgpt,
+  claude,
+  gemini,
+  grok,
+  deepseek,
+  kimi,
+  qwen,
+  notebooklm,
+  suno,
+  ideogram,
+  googleAiStudio,
+  sillytavern
+];
+
 allAdapters.forEach(registerAdapter);
 
-export { chatgpt, claude, gemini, grok, deepseek, kimi, qwen, notebooklm, suno, ideogram };
+export {
+  chatgpt,
+  claude,
+  gemini,
+  grok,
+  deepseek,
+  kimi,
+  qwen,
+  notebooklm,
+  suno,
+  ideogram,
+  googleAiStudio,
+  sillytavern
+};
