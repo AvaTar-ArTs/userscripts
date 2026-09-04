@@ -1,49 +1,69 @@
 {
-  "schemaVersion": 1,
-  "era": "canonical-b",
+  "schemaVersion": 2,
+  "era": "final-forms",
+  "canonicalBase": "canonical-b",
   "scripts": [
     {
       "id": "suno-extractor",
       "name": "Suno Extractor",
-      "status": "canonical",
+      "status": "canonical-base",
       "path": "src/current/suno-extractor.user.js",
+      "finalFormPath": "src/apps/suno-extractor.user.js",
+      "adapter": "suno",
       "hosts": ["suno.com"],
       "legacyHosts": [],
       "lineage": [
         "Suno Extractor v8.0 (Ultimate).user.js",
         "AvaTar-ArTs/Suno-Extractor-Empire:Suno Extractor v9.0 (The Sovereign).user.js"
       ],
-      "notes": "Canonical B uses the strongest in-repo installable lineage while v9 remains the consolidation reference for Final Forms."
+      "notes": "Final Forms keeps Canonical B as the installable baseline while the modular source moves extraction into the Suno adapter."
     },
     {
       "id": "claude-project-extractor",
       "name": "Claude Project Extractor",
-      "status": "canonical",
+      "status": "canonical-base",
       "path": "src/current/claude-project-extractor.user.js",
+      "finalFormPath": "src/apps/claude-project-extractor.user.js",
+      "adapter": "claude",
       "hosts": ["claude.ai"],
       "legacyHosts": ["chat.anthropic.com"],
       "lineage": ["claude-project-extract.js", "Claude Project Files Extractor-3.0.user.js"],
-      "notes": "Promotes the v3.2 lineage over duplicated v3.0 copies."
+      "notes": "v3.2 remains the working baseline; Final Forms routes normalized extraction through the Claude adapter."
     },
     {
       "id": "lyra",
       "name": "Lyra Exporter Fetch",
-      "status": "canonical",
+      "status": "canonical-base",
       "path": "src/current/lyra.user.js",
-      "hosts": ["chatgpt.com", "claude.ai", "gemini.google.com", "grok.com", "notebooklm.google.com"],
-      "legacyHosts": ["chat.openai.com", "bard.google.com", "chat.anthropic.com", "grok.x.ai", "notebook.google.com"],
+      "finalFormPath": "src/apps/lyra.user.js",
+      "adapter": "registry",
+      "hosts": ["chatgpt.com", "claude.ai", "gemini.google.com", "grok.com", "chat.deepseek.com", "kimi.com", "chat.qwen.ai", "notebooklm.google.com"],
+      "legacyHosts": ["chat.openai.com", "bard.google.com", "chat.anthropic.com", "grok.x.ai", "notebook.google.com", "kimi.moonshot.cn"],
       "lineage": ["lyra.js"],
-      "notes": "Multi-platform exporter retained as the broad canonical chat-backup layer."
+      "notes": "The Final Forms source entrypoint resolves platform behavior through the shared adapter registry."
     },
     {
       "id": "ideogram-harvester-reference",
       "name": "Ideogram Harvester Reference",
       "status": "reference",
       "path": "src/current/ideogram-reference.md",
+      "adapter": "ideogram",
       "hosts": ["ideogram.ai"],
       "legacyHosts": [],
       "lineage": ["AvaTar-ArTs/content-universe:browser/ideogram-harvester.user.js"],
-      "notes": "Referenced rather than duplicated so Content Universe remains the source of truth."
+      "notes": "Content Universe remains the executable source of truth while Final Forms provides an adapter boundary."
     }
+  ],
+  "adapters": [
+    "chatgpt",
+    "claude",
+    "gemini",
+    "grok",
+    "deepseek",
+    "kimi",
+    "qwen",
+    "notebooklm",
+    "suno",
+    "ideogram"
   ]
 }
